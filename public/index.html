@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IN@IR BUSINESS ENTERPRISES</title>
+<style>
+:root{
+--dark:#101b2e;
+--dark2:#1b2d46;
+--green:#0b9b83;
+--bg:#f3f6fa;
+--white:#fff;
+--muted:#8290a2;
+--line:#e7ebf1;
+--red:#d94d4d;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+background:var(--bg);
+font-family:Arial,sans-serif;
+color:#17243a;
+}
+header{
+background:var(--dark);
+color:white;
+padding:20px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+.logo-icon{
+background:var(--green);
+padding:13px;
+border-radius:10px;
+font-weight:bold;
+}
+header h1{font-size:17px;margin:0}
+header small{color:#aab8c9;letter-spacing:2px}
+#status{font-size:11px;color:#5be0bf}
+nav{
+background:var(--dark2);
+display:flex;
+gap:6px;
+padding:10px 4%;
+overflow-x:auto;
+}
+nav button{
+background:none;
+border:0;
+color:#c1ccda;
+padding:12px 15px;
+border-radius:7px;
+white-space:nowrap;
+}
+nav button.active,nav button:hover{
+background:var(--green);
+color:white;
+}
+main{
+max-width:1300px;
+margin:auto;
+padding:28px 4%;
+}
+h2{font-size:23px;margin:0 0 7px}
+.subtitle{
+color:var(--muted);
+font-size:12px;
+margin-bottom:22px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-bottom:18px;
+}
+.card,.panel{
+background:white;
+border:1px solid var(--line);
+border-radius:13px;
+padding:20px;
+margin-bottom:17px;
+box-shadow:0 5px 20px #15253c08;
+}
+.card small{color:var(--muted)}
+.card h3{
+font-size:23px;
+margin:14px 0 5px;
+}
+.card p{font-size:11px;color:var(--muted)}
+.two{
+display:grid;
+grid-template-columns:1.3fr 1fr;
+gap:15px;
+}
+.panel h3{font-size:15px;margin:0 0 17px}
+.btn{
+background:var(--green);
+color:white;
+border:0;
+padding:11px 16px;
+border-radius:7px;
+font-size:12px;
+font-weight:bold;
+}
+.btn:hover{opacity:.9}
+.secondary{background:#eaf0f5;color:#34445a}
+input,select,textarea{
+width:100%;
+padding:12px;
+border:1px solid #dce3eb;
+border-radius:7px;
+margin:6px 0 14px;
+outline:none;
+background:white;
+}
+input:focus,select:focus,textarea:focus{
+border-color:var(--green);
+}
+label{
+font-size:12px;
+font-weight:bold;
+color:#526178;
+}
+.formgrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+table{
+width:100%;
+border-collapse:collapse;
+white-space:nowrap;
+}
+th,td{
+text-align:left;
+padding:13px 9px;
+border-bottom:1px solid var(--line);
+font-size:12px;
+}
+th{
+font-size:10px;
+color:var(--muted);
+text-transform:uppercase;
+}
+.tablewrap{overflow-x:auto}
+.tag{
+background:#e5f7f1;
+color:#087f6b;
+padding:5px 9px;
+border-radius:20px;
+font-size:10px;
+}
+.low{background:#fff0df;color:#b77718}
+.hidden{display:none!important}
+.notice{
+background:#eaf5ff;
+padding:13px;
+border-radius:8px;
+font-size:12px;
+color:#315c85;
+margin:13px 0;
+}
+.hero{
+background:linear-gradient(120deg,#101b2e,#23506a);
+color:white;
+padding:27px;
+border-radius:13px;
+margin-bottom:18px;
+}
+.hero h2{font-size:22px}
+.hero p{font-size:12px;color:#c4d3df}
+.tabs{display:flex;gap:9px;margin-bottom:17px}
+.tabs button{
+border:1px solid var(--line);
+background:white;
+padding:10px 16px;
+border-radius:7px;
+font-size:12px;
+}
+.tabs button.active{
+background:var(--dark);
+color:white;
+}
+.login{
+max-width:420px;
+margin:55px auto;
+}
+.login .panel{padding:30px}
+.empty{
+text-align:center;
+padding:25px;
+color:var(--muted);
+}
+footer{
+text-align:center;
+padding:25px;
+font-size:11px;
+color:var(--muted);
+}
+#toast{
+position:fixed;
+right:20px;
+bottom:20px;
+background:var(--dark);
+color:white;
+padding:14px 18px;
+border-radius:8px;
+font-size:12px;
+z-index:20;
+max-width:320px;
+}
+@media(max-width:900px){
+.grid{grid-template-columns:repeat(2,1fr)}
+.two{grid-template-columns:1fr}
+}
+@media(max-width:550px){
+header{padding:16px}
+header h1{font-size:14px}
+main{padding:20px 13px}
+.grid{gap:8px}
+.card{padding:13px}
+.card h3{font-size:18px}
+.formgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">
+<div class="logo-icon">I@</div>
+<div>
+<h1>IN@IR BUSINESS ENTERPRISES</h1>
+<small>BUSINESS MANAGEMENT SYSTEM</small>
+</div>
+</div>
+<span id="status">PUBLIC WORKSPACE</span>
+</header>
+
+<nav id="navigation">
+<button class="active" data-page="staff">Staff Desk</button>
+<button data-page="dashboard" class="admin-nav hidden">Dashboard</button>
+<button data-page="inventory" class="admin-nav hidden">Inventory</button>
+<button data-page="sales" class="admin-nav hidden">Sales History</button>
+<button data-page="expenses" class="admin-nav hidden">Expenses</button>
+<button data-page="login" id="loginNav">Admin Login</button>
+<button id="logoutNav" class="hidden">Sign Out</button>
+</nav>
+
+<main>
+
+<!-- STAFF DESK -->
+<section id="staff">
+<div class="hero">
+<h2>Welcome to IN@IR Business Enterprises</h2>
+<p>Staff transaction centre. Record customer sales and business expenses.</p>
+</div>
+
+<div class="tabs">
+<button class="active" data-tab="sale">Record Sale</button>
+<button data-tab="expense">Record Expense</button>
+</div>
+
+<div class="panel" id="salePanel">
+<h3>New Sales Transaction</h3>
+<form id="saleForm">
+<label>Select Product</label>
+<select id="saleProduct" required>
+<option value="">Select a product</option>
+</select>
+
+<div class="formgrid">
+<div>
+<label>Quantity Sold</label>
+<input type="number" id="saleQuantity" min="1" required>
+</div>
+<div>
+<label>Selling Price (UGX)</label>
+<input id="salePrice" readonly>
+</div>
+</div>
+
+<div class="notice" id="saleInfo">
+Select a product to see stock availability.
+</div>
+
+<button class="btn">Save Sale</button>
+</form>
+</div>
+
+<div class="panel hidden" id="expensePanel">
+<h3>Enter Business Expense</h3>
+<form id="expenseForm">
+<label>Expense Description</label>
+<input id="expenseDescription" required maxlength="160"
+placeholder="e.g. Transport, rent, electricity">
+
+<div class="formgrid">
+<div>
+<label>Expense Category</label>
+<select id="expenseCategory">
+<option>Transport</option>
+<option>Rent</option>
+<option>Utilities</option>
+<option>Wages</option>
+<option>Maintenance</option>
+<option>Stock purchases</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label>Amount (UGX)</label>
+<input type="number" id="expenseAmount" min="1" required>
+</div>
+</div>
+
+<button class="btn">Submit Expense</button>
+</form>
+</div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="hidden">
+<h2>Business Dashboard</h2>
+<p class="subtitle">Financial and business performance overview.</p>
+
+<div class="grid">
+<div class="card">
+<small>Total Revenue</small>
+<h3 id="revenue">UGX 0</h3>
+<p>All recorded sales</p>
+</div>
+<div class="card">
+<small>Business Expenses</small>
+<h3 id="totalExpenses">UGX 0</h3>
+<p>Recorded expenses</p>
+</div>
+<div class="card">
+<small>Net Profit / Loss</small>
+<h3 id="profit">UGX 0</h3>
+<p>After costs and expenses</p>
+</div>
+<div class="card">
+<small>Stock Units</small>
+<h3 id="stock">0</h3>
+<p id="productCount">0 products</p>
+</div>
+</div>
+
+<div class="two">
+<div class="panel">
+<h3>Financial Performance</h3>
+<p>Sales revenue: <b id="revenue2">UGX 0</b></p>
+<p>Cost of goods sold: <b id="cost">UGX 0</b></p>
+<p>Gross profit: <b id="gross">UGX 0</b></p>
+<p>Operating expenses: <b id="expenses2">UGX 0</b></p>
+<p>Net profit/loss: <b id="net">UGX 0</b></p>
+</div>
+<div class="panel">
+<h3>Business Statistics</h3>
+<p>Total products: <b id="productsCount">0</b></p>
+<p>Total sales transactions: <b id="salesCount">0</b></p>
+<p>Available stock: <b id="stockCount">0</b></p>
+</div>
+</div>
+</section>
+
+<!-- INVENTORY -->
+<section id="inventory" class="hidden">
+<h2>Inventory Management</h2>
+<p class="subtitle">Add, edit and monitor business stock.</p>
+
+<div class="panel">
+<h3 id="formHeading">Add New Product</h3>
+<form id="productForm">
+<input type="hidden" id="editId">
+
+<div class="formgrid">
+<div>
+<label>Product Name</label>
+<input id="productName" required maxlength="150">
+</div>
+<div>
+<label>Product Category</label>
+<input id="category">
+</div>
+<div>
+<label>Buying Price (UGX)</label>
+<input type="number" id="costPrice" min="0" required>
+</div>
+<div>
+<label>Selling Price (UGX)</label>
+<input type="number" id="sellingPrice" min="0" required>
+</div>
+<div>
+<label>Stock Quantity</label>
+<input type="number" id="stockQuantity" min="0" required>
+</div>
+<div>
+<label>Low Stock Alert</label>
+<input type="number" id="lowStock" min="0" value="5" required>
+</div>
+</div>
+
+<button class="btn">Save Product</button>
+<button type="button" class="btn secondary" id="clearProduct">Clear</button>
+</form>
+</div>
+
+<div class="panel">
+<h3>Available Products</h3>
+<div class="tablewrap">
+<table>
+<thead>
+<tr>
+<th>Product</th><th>Category</th><th>Buying Price</th>
+<th>Selling Price</th><th>Quantity</th><th>Status</th><th>Action</th>
+</tr>
+</thead>
+<tbody id="inventoryTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- SALES HISTORY -->
+<section id="sales" class="hidden">
+<h2>Sales History</h2>
+<p class="subtitle">All recorded business sales.</p>
+<div class="panel">
+<div class="tablewrap">
+<table>
+<thead>
+<tr>
+<th>Date</th><th>Product</th><th>Quantity</th>
+<th>Unit Price</th><th>Revenue</th><th>Cost</th><th>Profit</th>
+</tr>
+</thead>
+<tbody id="salesTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- EXPENSE HISTORY -->
+<section id="expenses" class="hidden">
+<h2>Expense History</h2>
+<p class="subtitle">All recorded business expenditure.</p>
+<div class="panel">
+<div class="tablewrap">
+<table>
+<thead>
+<tr><th>Date</th><th>Description</th><th>Category</th><th>Amount</th></tr>
+</thead>
+<tbody id="expensesTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- ADMIN LOGIN -->
+<section id="login" class="hidden">
+<div class="login">
+<div class="panel">
+<h2>Administrator Login</h2>
+<p class="subtitle">Enter your administrator password.</p>
+<form id="loginForm">
+<label>Admin Password</label>
+<input type="password" id="password" required
+autocomplete="current-password">
+<button class="btn" style="width:100%">Login Securely</button>
+</form>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+IN@IR BUSINESS ENTERPRISES © 2026
+</footer>
+
+<div id="toast" class="hidden"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+let admin = false;
+let products = [];
+
+const money = n =>
+"UGX " + Number(n || 0).toLocaleString("en-UG");
+
+const date = d =>
+new Date(d).toLocaleString("en-UG");
+
+function safe(v) {
+return String(v ?? "").replace(/[&<>"']/g,c=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
+}
+
+function notify(message) {
+$("toast").textContent=message;
+$("toast").classList.remove("hidden");
+setTimeout(()=>$("toast").classList.add("hidden"),3500);
+}
+
+async function api(url,options={}) {
+const response=await fetch(url,{
+...options,
+credentials:"same-origin",
+headers:{
+"Content-Type":"application/json",
+...(options.headers||{})
+}
+});
+const data=await response.json().catch(()=>({}));
+if(!response.ok)throw new Error(data.error||"Request failed.");
+return data;
+}
+
+// NAVIGATION
+function openPage(page) {
+if(["dashboard","inventory","sales","expenses"].includes(page)&&!admin){
+notify("Administrator login required.");
+page="login";
+}
+document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
+$(page).classList.remove("hidden");
+document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+if(page==="staff")loadProducts();
+if(page==="inventory")loadInventory();
+if(page==="dashboard")loadDashboard();
+if(page==="sales")loadSales();
+if(page==="expenses")loadExpenses();
+}
+
+document.querySelectorAll("nav button[data-page]").forEach(b=>{
+b.addEventListener("click",()=>openPage(b.dataset.page));
+});
+
+document.querySelectorAll(".tabs button").forEach(b=>{
+b.addEventListener("click",()=>{
+document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+const expense=b.dataset.tab==="expense";
+$("salePanel").classList.toggle("hidden",expense);
+$("expensePanel").classList.toggle("hidden",!expense);
+});
+});
+
+// LOAD PUBLIC PRODUCTS
+async function loadProducts(){
+try{
+products=await api("/api/products");
+$("saleProduct").innerHTML='<option value="">Select a product</option>'+
+products.map(p=>`<option value="${p.id}">${safe(p.name)} - ${p.stock_quantity} available</option>`).join("");
+}catch(e){notify(e.message);}
+}
+
+function salePreview(){
+const p=products.find(x=>String(x.id)===$("saleProduct").value);
+const q=Number($("saleQuantity").value||0);
+$("salePrice").value=p?money(p.selling_price):"";
+$("saleInfo").textContent=p?
+`Available stock: ${p.stock_quantity}. Total: ${money(q*Number(p.selling_price))}.`:
+"Select a product to see stock availability.";
+}
+
+$("saleProduct").addEventListener("change",salePreview);
+$("saleQuantity").addEventListener("input",salePreview);
+
+// SAVE SALE
+$("saleForm").addEventListener("submit",async e=>{
+e.preventDefault();
+try{
+const result=await api("/api/sales",{
+method:"POST",
+body:JSON.stringify({
+product_id:Number($("saleProduct").value),
+quantity:Number($("saleQuantity").value)
+})
+});
+notify(result.message);
+$("saleForm").reset();
+await loadProducts();
+salePreview();
+}catch(e){notify(e.message);}
+});
+
+// SAVE EXPENSE
+$("expenseForm").addEventListener("submit",async e=>{
+e.preventDefault();
+try{
+const result=await api("/api/expenses",{
+method:"POST",
+body:JSON.stringify({
+description:$("expenseDescription").value,
+category:$("expenseCategory").value,
+amount:Number($("expenseAmount").value)
+})
+});
+notify(result.message);
+$("expenseForm").reset();
+}catch(e){notify(e.message);}
+});
+
+// ADMIN LOGIN
+$("loginForm").addEventListener("submit",async e=>{
+e.preventDefault();
+try{
+await api("/api/login",{
+method:"POST",
+body:JSON.stringify({password:$("password").value})
+});
+admin=true;
+$("password").value="";
+setAdminInterface(true);
+notify("Administrator access granted.");
+openPage("dashboard");
+}catch(e){notify(e.message);}
+});
+
+function setAdminInterface(active){
+admin=active;
+$("status").textContent=active?"ADMINISTRATOR ACTIVE":"PUBLIC WORKSPACE";
+$("loginNav").classList.toggle("hidden",active);
+$("logoutNav").classList.toggle("hidden",!active);
+document.querySelectorAll(".admin-nav").forEach(b=>b.classList.toggle("hidden",!active));
+}
+
+$("logoutNav").addEventListener("click",async()=>{
+try{await api("/api/logout",{method:"POST"});}catch(e){}
+setAdminInterface(false);
+openPage("staff");
+notify("Administrator signed out.");
+});
+
+// CHECK SESSION
+async function checkSession(){
+try{
+const result=await api("/api/session");
+if(result.admin)setAdminInterface(true);
+}catch(e){}
+}
+
+// INVENTORY
+async function loadInventory(){
+try{
+products=await api("/api/admin/products");
+$("inventoryTable").innerHTML=products.map(p=>{
+const low=Number(p.stock_quantity)<=Number(p.low_stock_level);
+return `<tr>
+<td>${safe(p.name)}</td>
+<td>${safe(p.category||"—")}</td>
+<td>${money(p.cost_price)}</td>
+<td>${money(p.selling_price)}</td>
+<td>${p.stock_quantity}</td>
+<td><span class="tag ${low?"low":""}">${low?"Low stock":"In stock"}</span></td>
+<td><button class="btn secondary" onclick="editProduct(${p.id})">Edit</button></td>
+</tr>`;
+}).join("")||'<tr><td colspan="7" class="empty">No products available.</td></tr>';
+}catch(e){notify(e.message);}
+}
+
+// ADD OR UPDATE PRODUCT
+$("productForm").addEventListener("submit",async e=>{
+e.preventDefault();
+const id=$("editId").value;
+const body={
+name:$("productName").value,
+category:$("category").value,
+cost_price:Number($("costPrice").value),
+selling_price:Number($("sellingPrice").value),
+stock_quantity:Number($("stockQuantity").value),
+low_stock_level:Number($("lowStock").value)
+};
+try{
+await api(id?"/api/admin/products/"+id:"/api/admin/products",{
+method:id?"PUT":"POST",
+body:JSON.stringify(body)
+});
+notify(id?"Product updated.":"Product added.");
+resetProduct();
+loadInventory();
+}catch(e){notify(e.message);}
+});
+
+function editProduct(id){
+const p=products.find(x=>Number(x.id)===Number(id));
+if(!p)return;
+$("editId").value=p.id;
+$("productName").value=p.name;
+$("category").value=p.category||"";
+$("costPrice").value=p.cost_price;
+$("sellingPrice").value=p.selling_price;
+$("stockQuantity").value=p.stock_quantity;
+$("lowStock").value=p.low_stock_level;
+$("formHeading").textContent="Edit Product";
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function resetProduct(){
+$("productForm").reset();
+$("editId").value="";
+$("lowStock").value=5;
+$("formHeading").textContent="Add New Product";
+}
+$("clearProduct").addEventListener("click",resetProduct);
+
+// DASHBOARD
+async function loadDashboard(){
+try{
+const d=await api("/api/admin/summary");
+$("revenue").textContent=money(d.revenue);
+$("totalExpenses").textContent=money(d.expenses);
+$("profit").textContent=money(d.net_profit);
+$("profit").style.color=Number(d.net_profit)<0?"var(--red)":"var(--green)";
+$("stock").textContent=Number(d.stock).toLocaleString();
+$("productCount").textContent=d.product_count+" products";
+$("revenue2").textContent=money(d.revenue);
+$("cost").textContent=money(d.cost);
+$("gross").textContent=money(d.gross_profit);
+$("expenses2").textContent=money(d.expenses);
+$("net").textContent=money(d.net_profit);
+$("productsCount").textContent=d.product_count;
+$("salesCount").textContent=d.sales_count||"—";
+$("stockCount").textContent=d.stock;
+}catch(e){notify(e.message);}
+}
+
+// SALES HISTORY
+async function loadSales(){
+try{
+const rows=await api("/api/admin/sales");
+$("salesTable").innerHTML=rows.map(s=>`
+<tr>
+<td>${date(s.created_at)}</td>
+<td>${safe(s.product_name)}</td>
+<td>${s.quantity}</td>
+<td>${money(s.unit_price)}</td>
+<td>${money(s.total_amount)}</td>
+<td>${money(s.cost_total)}</td>
+<td>${money(Number(s.total_amount)-Number(s.cost_total))}</td>
+</tr>`).join("")||'<tr><td colspan="7" class="empty">No sales recorded.</td></tr>';
+}catch(e){notify(e.message);}
+}
+
+// EXPENSE HISTORY
+async function loadExpenses(){
+try{
+const rows=await api("/api/admin/expenses");
+$("expensesTable").innerHTML=rows.map(x=>`
+<tr>
+<td>${date(x.created_at)}</td>
+<td>${safe(x.description)}</td>
+<td>${safe(x.category)}</td>
+<td>${money(x.amount)}</td>
+</tr>`).join("")||'<tr><td colspan="4" class="empty">No expenses recorded.</td></tr>';
+}catch(e){notify(e.message);}
+}
+
+async function start(){
+await checkSession();
+await loadProducts();
+}
+start();
+</script>
+</body>
+</html>
